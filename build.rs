@@ -181,7 +181,7 @@ fn write_bindgen_bindings(
     for arch in ARCH_INCLUDES {
         // .*(^|_)ARCH(_|$).*
         let arch_type_pattern = format!(".*(^|_){}(_|$).*", arch.cs_name);
-        let const_mod_pattern = format!("^{}_(reg|insn_group)$", arch.cs_name);
+        let const_mod_pattern = format!("^{}_(reg|insn_group|insn|op_type)$", arch.cs_name);
         builder = builder
             .whitelist_type(&arch_type_pattern)
             .constified_enum_module(&const_mod_pattern);
